@@ -5,16 +5,21 @@ package structures;
 public class BasicStack<X> {
 	private X[] data;
 	private int stackPointer;
+	private int max;
 
 	//this is limited, replace array with ArrayList if max stack size unknown when instantiating
 	public BasicStack(int maxStackSize) {
 		data = (X[]) new Object[maxStackSize];
 		stackPointer = 0;
+		max = maxStackSize - 1;
 	}
 
 	// insert on top
 	// O(1)
 	public void push(X newItem) {
+		if (stackPointer > max) {
+			throw new IllegalStateException("Stack's full.");
+		}
 		data[stackPointer++] = newItem;
 	}
 
