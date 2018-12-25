@@ -81,4 +81,12 @@ public class BasicStack<X> implements CustomStackInterface<X> {
 		}
 		return newStack;
 	}
+	
+	public void printBasicStack() {
+		for (int i = 0; i < stackPointer; i++) {
+			System.out.print(data[i] + "; ");
+		}
+	}
+	
+	// TODO: override equals and hashCode
 }
